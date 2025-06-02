@@ -1,6 +1,7 @@
 import { z } from "zod";
 import { Hono } from "hono";
 import { zValidator } from "@hono/zod-validator";
+import { cors } from "hono/cors";
 
 export const EVMAddress = z
   .string()
@@ -23,6 +24,7 @@ export function initializeHerdCodeServer<TInputSchema extends z.ZodObject<any>, 
   fn: (input: z.infer<TInputSchema>) => z.infer<TOutputSchema>,
 ) {
   const app = new Hono();
+  app.use("/*", cors());
 
   app.post("/", zValidator("json", inputSchema), async (c) => {
     try {
