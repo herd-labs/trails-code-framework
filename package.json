@@ -1,6 +1,6 @@
 {
   "name": "@herd-labs/trails-code-framework",
-  "version": "1.0.0-alpha.2",
+  "version": "1.0.0-alpha.3",
   "description": "A package for building Herd-compliant custom Deno scripts used in Herd Trails",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",

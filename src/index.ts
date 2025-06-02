@@ -21,7 +21,9 @@ export const Bytes = (length: number) =>
 export function initializeHerdCodeServer<TInputSchema extends z.ZodObject<any>, TOutputSchema extends z.ZodObject<any>>(
   inputSchema: TInputSchema,
   outputSchema: TOutputSchema,
-  fn: (input: z.infer<TInputSchema>) => z.infer<TOutputSchema>,
+  fn:
+    | ((input: z.infer<TInputSchema>) => z.infer<TOutputSchema>)
+    | ((input: z.infer<TInputSchema>) => Promise<z.infer<TOutputSchema>>),
 ) {
   const app = new Hono();
   app.use("/*", cors());
@@ -31,7 +33,7 @@ export function initializeHerdCodeServer<TInputSchema extends z.ZodObject<any>, 
       const validatedInput = c.req.valid("json");
 
       // Execute the function
-      const result = fn(validatedInput);
+      const result = await Promise.resolve(fn(validatedInput));
 
       // Validate output
       const validatedOutput = outputSchema.parse(result);
