@@ -1,6 +1,6 @@
 {
   "name": "@herd-labs/trails-code-framework",
-  "version": "1.0.0-alpha.4",
+  "version": "1.0.0-alpha.5",
   "description": "A package for building Herd-compliant custom Deno scripts used in Herd Trails",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -32,13 +32,16 @@
     "@typescript-eslint/parser": "^6.0.0",
     "eslint": "^8.0.0",
     "prettier": "^3.0.0",
-    "typescript": "^5.0.0"
+    "typescript": "^5.0.0",
+    "viem": "^2.30.1",
+    "zod": "^4.0.5"
   },
   "dependencies": {
-    "@hono/zod-validator": "^0.5.0",
-    "hono": "^4.7.10",
-    "viem": "^2.30.1",
-    "zod": "^3.25.28"
+    "@hono/zod-validator": "^0.7.1",
+    "hono": "^4.8.5"
+  },
+  "peerDependencies": {
+    "zod": "^4.0.0"
   },
   "engines": {
     "node": ">=18.0.0"
