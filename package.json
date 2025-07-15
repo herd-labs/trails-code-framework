@@ -33,12 +33,12 @@
     "eslint": "^8.0.0",
     "prettier": "^3.0.0",
     "typescript": "^5.0.0",
+    "viem": "^2.30.1",
     "zod": "^4.0.5"
   },
   "dependencies": {
     "@hono/zod-validator": "^0.5.0",
-    "hono": "^4.7.10",
-    "viem": "^2.30.1"
+    "hono": "^4.7.10"
   },
   "peerDependencies": {
     "zod": "^4.0.0"
